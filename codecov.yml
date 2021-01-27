@@ -11,3 +11,5 @@ ignore:
   - 'src/apollo'
   - 'src/reportWebVitals.ts'
   - 'src/setupTests.js'
+  - 'src/index.tsx'
+  - '**/*.generated.tsx'
