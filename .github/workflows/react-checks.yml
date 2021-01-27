@@ -41,6 +41,12 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
           directory: ./coverage/
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          browser: chrome
+          headless: true
+          start: npm run start
   analyze:
     name: Analyze
     runs-on: ubuntu-latest

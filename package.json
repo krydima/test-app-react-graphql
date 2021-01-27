@@ -10,7 +10,9 @@
     "graphql:codegen": "graphql-codegen --config codegen.yml",
     "graphql:codegen:watch": "graphql-codegen --config codegen.yml --watch",
     "generate-types-for-css": "tcm src --namedExports",
-    "type-check": "tsc --noEmit --skipLibCheck"
+    "type-check": "tsc --noEmit --skipLibCheck",
+    "cypress:open": "NODE_OPTIONS=--max-http-header-size=99999999999999 CYPRESS_numTestsKeptInMemory=50 cypress open",
+    "cypress:run:docker": "CYPRESS_baseUrl=http://$(ipconfig getifaddr en0):3000 NODE_OPTIONS=--max-http-header-size=99999999999999 docker run --memory=800m -it -v $PWD:/cypress -w /cypress -e CYPRESS_baseUrl -e NODE_OPTIONS cypress/included:6.3.0 --headless --browser chrome"
   },
   "dependencies": {
     "@apollo/client": "^3.3.7",
@@ -28,8 +30,6 @@
     "web-vitals": "^0.2.4"
   },
   "devDependencies": {
-    "eslint-config-prettier": "^7.2.0",
-    "eslint-plugin-prettier": "^3.3.1",
     "@graphql-codegen/add": "^2.0.2",
     "@graphql-codegen/cli": "1.20.0",
     "@graphql-codegen/fragment-matcher": "2.0.1",
@@ -47,10 +47,16 @@
     "@types/jest": "^26.0.20",
     "@types/node": "^14.14.22",
     "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
-    "@types/react-router-dom": "^5.1.7",
     "@types/react-aria-modal": "^4.0.2",
+    "@types/react-dom": "^17.0.0",
     "@types/react-modal": "^3.10.6",
+    "@types/react-router-dom": "^5.1.7",
+    "cypress": "^6.3.0",
+    "cypress-image-snapshot": "^4.0.1",
+    "cypress-wait-until": "^1.7.1",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-cypress": "^2.11.2",
+    "eslint-plugin-prettier": "^3.3.1",
     "husky": "^4.3.8",
     "lint-staged": "^10.5.3",
     "prettier": "^2.2.1",
@@ -75,6 +81,20 @@
       "react-app",
       "react-app/jest",
       "prettier"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "cypress/**/*.spec.js"
+        ],
+        "extends": [
+          "plugin:cypress/recommended"
+        ],
+        "rules": {
+          "no-unused-expressions": "off",
+          "cypress/no-unnecessary-waiting": "off"
+        }
+      }
     ]
   },
   "browserslist": {
