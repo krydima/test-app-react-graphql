@@ -11,15 +11,14 @@
     "graphql:codegen:watch": "graphql-codegen --config codegen.yml --watch",
     "generate-types-for-css": "tcm src --namedExports",
     "type-check": "tsc --noEmit --skipLibCheck",
-    "cypress:open": "NODE_OPTIONS=--max-http-header-size=99999999999999 CYPRESS_numTestsKeptInMemory=50 cypress open",
-    "cypress:run:docker": "CYPRESS_baseUrl=http://$(ipconfig getifaddr en0):3000 NODE_OPTIONS=--max-http-header-size=99999999999999 docker run --memory=800m -it -v $PWD:/cypress -w /cypress -e CYPRESS_baseUrl -e NODE_OPTIONS cypress/included:6.3.0 --headless --browser chrome"
+    "e2e:open": "NODE_OPTIONS=--max-http-header-size=99999999999999 CYPRESS_numTestsKeptInMemory=50 cypress open --env failOnSnapshotDiff=false",
+    "e2e:run:docker": "CYPRESS_baseUrl=http://$(ipconfig getifaddr en0):3000 NODE_OPTIONS=--max-http-header-size=99999999999999 docker run --memory=800m -it -v $PWD:/cypress -w /cypress -e CYPRESS_baseUrl -e NODE_OPTIONS cypress/included:6.3.0 --headless --browser chrome"
   },
   "dependencies": {
     "@apollo/client": "^3.3.7",
     "classnames": "^2.2.6",
     "graphql": "^15.4.0",
     "react": "^17.0.1",
-    "react-aria-modal": "^4.0.0",
     "react-dom": "^17.0.1",
     "react-modal": "^3.12.1",
     "react-router": "^5.2.0",

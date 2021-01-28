@@ -33,7 +33,7 @@ jobs:
       - name: Lint
         run: npm run lint
       - name: Test
-        run: npm run test -- --coverage --silent
+        run: npm run test -- --coverage
         env:
           CI: true
       - name: codecov
