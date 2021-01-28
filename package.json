@@ -11,8 +11,10 @@
     "graphql:codegen:watch": "graphql-codegen --config codegen.yml --watch",
     "generate-types-for-css": "tcm src --namedExports",
     "type-check": "tsc --noEmit --skipLibCheck",
-    "e2e:open": "NODE_OPTIONS=--max-http-header-size=99999999999999 CYPRESS_numTestsKeptInMemory=50 cypress open --env failOnSnapshotDiff=false",
-    "e2e:run:docker": "CYPRESS_baseUrl=http://$(ipconfig getifaddr en0):3000 NODE_OPTIONS=--max-http-header-size=99999999999999 docker run --memory=800m -it -v $PWD:/cypress -w /cypress -e CYPRESS_baseUrl -e NODE_OPTIONS cypress/included:6.3.0 --headless --browser chrome"
+    "test:e2e:open": "NODE_OPTIONS=--max-http-header-size=99999999999999 CYPRESS_numTestsKeptInMemory=50 cypress open --env failOnSnapshotDiff=false",
+    "test:e2e:run:docker": "CYPRESS_baseUrl=http://$(ipconfig getifaddr en0):3000 NODE_OPTIONS=--max-http-header-size=99999999999999 docker run --memory=800m -it -v $PWD:/cypress -w /cypress -e CYPRESS_baseUrl -e NODE_OPTIONS cypress/included:6.3.0 --headless --browser chrome",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "dependencies": {
     "@apollo/client": "^3.3.7",
@@ -40,6 +42,12 @@
     "@graphql-codegen/typescript-apollo-client-helpers": "^1.1.2",
     "@graphql-codegen/typescript-operations": "1.17.13",
     "@graphql-codegen/typescript-react-apollo": "2.2.1",
+    "@storybook/addon-actions": "^6.1.15",
+    "@storybook/addon-essentials": "^6.1.15",
+    "@storybook/addon-links": "^6.1.15",
+    "@storybook/node-logger": "^6.1.15",
+    "@storybook/preset-create-react-app": "^3.1.5",
+    "@storybook/react": "^6.1.15",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^12.6.2",

@@ -7,7 +7,7 @@ import styles from './ErrorModal.module.css';
 export const ERROR_MODAL_TEST_ID = 'error-modal';
 export const ERROR_MODAL_RELOAD_BUTTON_TEST_ID = 'error-modal-reload-button';
 
-type ErrorModalProps = {
+export type ErrorModalProps = {
   message: string;
   reload?: () => void;
 };
