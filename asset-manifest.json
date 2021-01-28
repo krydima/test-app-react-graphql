@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/test-app-react-graphql/static/css/main.d0529cc8.chunk.css",
+    "main.js": "/test-app-react-graphql/static/js/main.96980281.chunk.js",
+    "main.js.map": "/test-app-react-graphql/static/js/main.96980281.chunk.js.map",
+    "runtime-main.js": "/test-app-react-graphql/static/js/runtime-main.228ff2b1.js",
+    "runtime-main.js.map": "/test-app-react-graphql/static/js/runtime-main.228ff2b1.js.map",
+    "static/js/2.b7194da4.chunk.js": "/test-app-react-graphql/static/js/2.b7194da4.chunk.js",
+    "static/js/2.b7194da4.chunk.js.map": "/test-app-react-graphql/static/js/2.b7194da4.chunk.js.map",
+    "static/js/3.a3281520.chunk.js": "/test-app-react-graphql/static/js/3.a3281520.chunk.js",
+    "static/js/3.a3281520.chunk.js.map": "/test-app-react-graphql/static/js/3.a3281520.chunk.js.map",
+    "index.html": "/test-app-react-graphql/index.html",
+    "static/css/main.d0529cc8.chunk.css.map": "/test-app-react-graphql/static/css/main.d0529cc8.chunk.css.map",
+    "static/js/2.b7194da4.chunk.js.LICENSE.txt": "/test-app-react-graphql/static/js/2.b7194da4.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.228ff2b1.js",
+    "static/js/2.b7194da4.chunk.js",
+    "static/css/main.d0529cc8.chunk.css",
+    "static/js/main.96980281.chunk.js"
+  ]
+}
