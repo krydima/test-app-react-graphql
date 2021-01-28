@@ -13,3 +13,4 @@ ignore:
   - 'src/setupTests.js'
   - 'src/index.tsx'
   - '**/*.generated.tsx'
+  - '**/*.stories.tsx'
