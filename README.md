@@ -51,6 +51,12 @@ $ npm run test:e2e:run:docker
 $ npm run type-check
 ```
 
+## Release
+
+```bash
+$ npm run release
+```
+
 ## Deploying
 
 Deployment to "github pages" will start automatically after committing to main branch. (github workflows)

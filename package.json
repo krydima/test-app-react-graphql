@@ -14,7 +14,8 @@
     "test:e2e:open": "NODE_OPTIONS=--max-http-header-size=99999999999999 CYPRESS_numTestsKeptInMemory=50 cypress open --env failOnSnapshotDiff=false",
     "test:e2e:run:docker": "CYPRESS_baseUrl=http://$(ipconfig getifaddr en0):3000 NODE_OPTIONS=--max-http-header-size=99999999999999 docker run --memory=800m -it -v $PWD:/cypress -w /cypress -e CYPRESS_baseUrl -e NODE_OPTIONS cypress/included:6.3.0 --headless --browser chrome",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "release": "read -p 'GITHUB_TOKEN: ' GITHUB_TOKEN && export GITHUB_TOKEN=$GITHUB_TOKEN && release-it"
   },
   "dependencies": {
     "@apollo/client": "^3.3.7",
@@ -67,7 +68,8 @@
     "husky": "^4.3.8",
     "lint-staged": "^10.5.3",
     "prettier": "^2.2.1",
-    "typed-css-modules": "^0.6.5"
+    "typed-css-modules": "^0.6.5",
+    "release-it": "^14.2.2"
   },
   "prettier": {
     "singleQuote": true
