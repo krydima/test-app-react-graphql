@@ -20,6 +20,8 @@ const ErrorModal: FC<ErrorModalProps> = ({ message, reload }) => {
   const reloadHandler = () => {
     if (is404) {
       history.replace('/');
+    } else if (reload) {
+      reload();
     } else {
       history.go(0);
     }

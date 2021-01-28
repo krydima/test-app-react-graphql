@@ -1,5 +1,5 @@
 import React from 'react';
-import { renderWithWrappers, screen } from 'reactTestUtils';
+import { renderWithWrappers, screen, fireEvent } from 'reactTestUtils';
 
 import ErrorModal, {
   ERROR_MODAL_TEST_ID,
@@ -39,5 +39,53 @@ describe('ErrorModal component', () => {
     );
 
     expect(reloadButton).toHaveTextContent('Go to home page');
+  });
+
+  it('should show execute reload function', async () => {
+    const errorMessage = 'Message';
+
+    const reload = jest.fn();
+
+    renderWithWrappers(<ErrorModal message={errorMessage} reload={reload} />);
+
+    fireEvent.click(
+      await screen.findByTestId(ERROR_MODAL_RELOAD_BUTTON_TEST_ID)
+    );
+
+    expect(reload).toBeCalledTimes(1);
+  });
+
+  it('should reload page', async () => {
+    const errorMessage = 'Message';
+
+    const { history } = renderWithWrappers(
+      <ErrorModal message={errorMessage} />,
+      { route: '/test' }
+    );
+
+    fireEvent.click(
+      await screen.findByTestId(ERROR_MODAL_RELOAD_BUTTON_TEST_ID)
+    );
+
+    expect(history.location.pathname).toBe('/test');
+    expect(history.length).toBe(1);
+    expect(history.action).toBe('POP');
+  });
+
+  it('should got to home page', async () => {
+    const errorMessage = '404: Not Found';
+
+    const { history } = renderWithWrappers(
+      <ErrorModal message={errorMessage} />,
+      { route: '/test' }
+    );
+
+    fireEvent.click(
+      await screen.findByTestId(ERROR_MODAL_RELOAD_BUTTON_TEST_ID)
+    );
+
+    expect(history.location.pathname).toBe('/');
+    expect(history.length).toBe(1);
+    expect(history.action).toBe('REPLACE');
   });
 });
